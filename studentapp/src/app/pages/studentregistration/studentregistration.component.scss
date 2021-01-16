@@ -1,0 +1,28 @@
+// @import "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css";
+
+.disable {
+    cursor: default;
+    pointer-events: none;
+    background-color:lighten(#28a745, 20%);;
+}
+.control-alert {
+    font-size: 0.8rem;
+    color: red;
+}
+.control-alert small {
+    color: rgb(240, 231, 228);
+    display: block;
+}
+.icon-eye-close,.icon-eye-open {
+    margin-left: 2px;
+}
+
+@media only screen and (max-width:500px) {
+    // * {
+    //     font-size: 1rem;
+    // }
+    select {
+        font-size: 0.8rem;
+        width:fit-content;
+    }
+  }

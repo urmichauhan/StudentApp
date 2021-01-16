@@ -1,0 +1,15 @@
+.images {
+    border-radius: 50%;
+    max-width:400px;
+    width: fit-content;
+    height: 400px;
+    margin: 10px;
+}
+
+@media only screen and (max-width:500px) {
+    .images {
+        width: fit-content;
+        height: fit-content;
+    }
+  }
+  

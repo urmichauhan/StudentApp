@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="header">
+    <ul class="nav ">
+      <li>
+        <a class="navbar-brand" (click)="navigatePage('home')">
+          <img src="../assets//images/logo.png" title="Code Infinite" width="80" height="50" alt="">
+        </a>
+      </li>
+      <li class="nav-item active" title="Home" (click)="navigatePage('data')">
+        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+
+  </div>
+  <div class="content">
+    <div class="mainDiv" >
+
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="footer" style="text-align: center;">
+    Created by : Urmi Chauhan<br /> © {{year}}<br />
+    <a href="mailto:chauhanurmi2@gmail.com?subject = Feedback&body = Message">
+      Send Feedback or Queries
+    </a>
+  </div>
+</div>

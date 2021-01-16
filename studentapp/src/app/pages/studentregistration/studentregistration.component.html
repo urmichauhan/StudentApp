@@ -1,0 +1,120 @@
+<div class="container">
+    <div class="card text-white bg-secondary mb-3">
+        <div class="card-body">
+            <div *ngIf="alertText.text" class="alert {{alertText.class}}" role="alert">
+                {{alertText.text}}
+            </div>
+            <form [formGroup]="student">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>*Email</label>
+                        <input autocomplete="off" type="text" formControlName="email" class="form-control">
+                        <span class="control-alert"
+                            *ngIf="student.controls.email.errors && student.controls.email.invalid && (student.controls.email.touched || submitted)">
+                            Invalid field
+                        </span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>*Student Group</label>
+                        <select autocomplete="off" id="group" formControlName="studentGroup" class="form-control">
+                            <option selected>--Select group--</option>
+                            <option *ngFor="let grp of groupList" >{{grp}}</option>
+                        </select>
+                        <span class="control-alert"
+                            *ngIf="student.controls.studentGroup.errors && student.controls.studentGroup.invalid && (student.controls.studentGroup.touched || submitted)">
+                            Invalid field
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>*Name</label>
+                        <input autocomplete="off" formControlName="name" type="text" class="form-control">
+                        <span class="control-alert"
+                            *ngIf="student.controls.name.errors && student.controls.name.invalid && (student.controls.name.touched || submitted)">
+                            Invalid field<small>Please enter valid Name that contains only alphabetical
+                                characters</small>
+                        </span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>*Password</label>
+                        <div class="input-group">
+                            <input autocomplete="off" formControlName="password" [type]="passwordType"
+                                class="form-control">
+                            <i class="icon-eye-close" *ngIf="passwordType=='text'"
+                                (click)="passwordType='password'"></i>
+                            <i class="icon-eye-open" *ngIf="passwordType=='password'" (click)="passwordType='text'"></i>
+                        </div>
+                        <span class="control-alert"
+                            *ngIf="student.controls.password.errors && student.controls.password.invalid && (student.controls.password.touched || submitted)">
+                            Invalid field<small>Please enter Password that must contains minimum 6 to 20 characters with
+                                at least one
+                                uppercase,lowercase alphabet,one number & one special character</small>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label>*Address</label>
+                        <textarea autocomplete="off" class="form-control" formControlName="address" rows="3"></textarea>
+                        <span class="control-alert"
+                            *ngIf="student.controls.address.errors && student.controls.address.invalid && (student.controls.address.touched || submitted)">
+                            Invalid field
+                        </span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>*Phone</label>
+                        <input autocomplete="off" type="text" formControlName="phone" class="form-control">
+                        <span class="control-alert"
+                            *ngIf="student.controls.phone.errors && student.controls.phone.invalid &&  (student.controls.phone.touched || submitted)">
+                            Invalid field
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Guardian Phone</label>
+                        <input autocomplete="off" type="text" formControlName="guardianPhone" class="form-control">
+                        <span class="control-alert"
+                            *ngIf="student.controls.guardianPhone.errors && student.controls.guardianPhone.invalid &&  (student.controls.guardianPhone.touched || submitted)">
+                            Invalid field
+                        </span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Enrollment Number</label>
+                        <input autocomplete="off" type="text" formControlName="enrollmentNumber" class="form-control">
+                        <span class="control-alert"
+                            *ngIf="student.controls.enrollmentNumber.errors && student.controls.enrollmentNumber.invalid &&  (student.controls.enrollmentNumber.touched || submitted)">
+                            Invalid field<small>Please enter valid 10 digit Enrollment number</small>
+                        </span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Status</label>
+                        <select autocomplete="off"  formControlName="status" class="form-control">
+                            <!-- <option>...</option> -->
+                            <option *ngFor="let state of statusList" [value]="'Active'">{{state}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="formFile" class="form-label">Upload Photo</label>
+                        <input class="form-control" type="file" #fileInput (change)="onSelectFile($event)"
+                            accept="image/png,image/jpg,image/jpeg" id="formFile">
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <button type="submit" [ngClass]="{'disable':(student.invalid)}" class="btn btn-success" (click)="addStudent()">Save</button>
+                    <button type="submit" class="btn btn-light" (click)="reset()">Reset</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+</div>
