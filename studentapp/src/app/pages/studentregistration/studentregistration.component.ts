@@ -43,8 +43,8 @@ export class StudentregistrationComponent implements OnInit {
    * @param page Image data
    */
   onSelectFile(event) {
-    let allowTypes = ['iamge/jpeg', 'image/jpg', 'image/png'];
-    console.log(event.target.files)
+    let allowTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+    console.log(event.target.files[0].type)
     if (event.target.files && event.target.files[0] && allowTypes.indexOf(event.target.files[0].type) > -1) {
       var reader = new FileReader();
 
